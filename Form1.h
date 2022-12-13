@@ -1,3 +1,11 @@
+/*
+Author: Collin Ennis
+Date: 12/12/2022
+
+Simple coin flip gambling visualizer
+
+*/
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -298,18 +306,37 @@ namespace CppCLRWinFormsProject {
 
 		}
 		String^ typeOfGambling = "coinFlip";
+		
+		// The amount of times to flip the coin
 		int runTimes = 0;
+		
+		// The amount of money that the user wants to start with
 		int startingMoney = 0;
+		
+		// The amount of money that the user wants to coin flip
 		int gambleAmount = 0;
+		
+		// The amount of money that the user has left after runTimes coinflips
 		int endingMoney = 0;
+
+		// Stores the initial gamble amount so that we don't lose the value once we change the gamble amount
 		int initialGambleAmount = 0;
+
+		// Stores the gamble multiplier. This will be multiplied by the current gambleAmount whenever the user loses a coinflip. This simulates the Martingale
+		// Gambling philosophy found here: https://en.wikipedia.org/wiki/Martingale_(betting_system)
 		int gambleMultiplier = 0;
+
+		// Keep track of how many times the user has clicked the run button so that the fields are not overwritten
 		int counter = 0;
+
+		// Keep track of when the user has clicked one of the multiplier buttons. This is used to coordinate the colors of the buttons
 		bool multiplierClicked = false;
 
 #pragma endregion
+// Run button function
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (counter == 0) {
+	srand(time(0));
+	if (counter == 0) { // Check counter so you don't rewrite over the data
 		startingMoney = int::Parse(textBox1->Text);
 		gambleAmount = int::Parse(textBox2->Text);
 		initialGambleAmount = gambleAmount;
@@ -319,48 +346,60 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	runTimes = int::Parse(textBox3->Text);
 	for (int i = 0; i < runTimes; i++) {
 		int random = rand() % 2;
-		if (random == 0) {
+		if (random == 0) { // 0 means the user won that coinflip
 			endingMoney += gambleAmount;
 			gambleAmount = initialGambleAmount;
 		}
-		else {
+		else { // Else they lost the coinFlip
 			endingMoney -= gambleAmount;
-			gambleAmount = gambleAmount * gambleMultiplier;
+			gambleAmount = gambleAmount * gambleMultiplier; // Multiply the gamble amount by the chosen gamble multiplier
 		}
 	}
 	textBox4->Text = "After " + runTimes + " times: " + endingMoney + "\r\n" + textBox4->Text;
 	counter++;
 }
+
+// 1x gamble multiplier button
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	gambleMultiplier = 1;
 	resetButtons();
 	button2->BackColor = Color::LightBlue;
 	multiplierClicked = true;
 }
+
+// 2x gamble multiplier button
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	gambleMultiplier = 2;
 	resetButtons();
 	button3->BackColor = Color::LightBlue;
 	multiplierClicked = true;
 }
+
+// 3x gamble multiplier button
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	gambleMultiplier = 3;
     resetButtons();
 	button4->BackColor = Color::LightBlue;
 	multiplierClicked = true;
 }
+
+// 4x gamble multiplier button
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 	gambleMultiplier = 4;
 	resetButtons();
 	button5->BackColor = Color::LightBlue;
 	multiplierClicked = true;
 }
+
+// 5x gamble multiplier button
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	gambleMultiplier = 5;
 	resetButtons();
 	button6->BackColor = Color::LightBlue;
 	multiplierClicked = true;
 }
+
+// Used to coordinate the button colors whenever one is clicked
 private: System::Void resetButtons() {
 	if (multiplierClicked) {
 		button2->UseVisualStyleBackColor = true;
@@ -370,6 +409,8 @@ private: System::Void resetButtons() {
 		button6->UseVisualStyleBackColor = true;
 	}
 }
+
+// Reset fields button
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
 	button2->UseVisualStyleBackColor = true;
 	button3->UseVisualStyleBackColor = true;
@@ -389,6 +430,8 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
 	textBox3->Text = "";
 	textBox4->Text = "";
 }
+
+// Clear output textbox button
 private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
 	textBox4->Text = "";
 }
