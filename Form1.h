@@ -45,6 +45,12 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ textBox4;
 	private: System::Windows::Forms::RichTextBox^ richTextBox4;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::RichTextBox^ richTextBox5;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ button6;
 
 
 
@@ -72,6 +78,12 @@ namespace CppCLRWinFormsProject {
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->richTextBox4 = (gcnew System::Windows::Forms::RichTextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->richTextBox5 = (gcnew System::Windows::Forms::RichTextBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -133,6 +145,7 @@ namespace CppCLRWinFormsProject {
 			this->textBox4->Location = System::Drawing::Point(556, 252);
 			this->textBox4->Multiline = true;
 			this->textBox4->Name = L"textBox4";
+			this->textBox4->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->textBox4->Size = System::Drawing::Size(319, 102);
 			this->textBox4->TabIndex = 7;
 			// 
@@ -158,11 +171,87 @@ namespace CppCLRWinFormsProject {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
+			// button2
+			// 
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(74, 412);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(58, 47);
+			this->button2->TabIndex = 9;
+			this->button2->Text = L"1x";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
+			// 
+			// richTextBox5
+			// 
+			this->richTextBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->richTextBox5->Location = System::Drawing::Point(74, 360);
+			this->richTextBox5->Name = L"richTextBox5";
+			this->richTextBox5->Size = System::Drawing::Size(397, 40);
+			this->richTextBox5->TabIndex = 10;
+			this->richTextBox5->Text = L"Gamble amount multiplier on loss";
+			// 
+			// button3
+			// 
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->Location = System::Drawing::Point(162, 412);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(58, 47);
+			this->button3->TabIndex = 11;
+			this->button3->Text = L"2x";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &Form1::button3_Click);
+			// 
+			// button4
+			// 
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->Location = System::Drawing::Point(331, 412);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(58, 47);
+			this->button4->TabIndex = 12;
+			this->button4->Text = L"4x";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &Form1::button4_Click);
+			// 
+			// button5
+			// 
+			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button5->Location = System::Drawing::Point(245, 412);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(58, 47);
+			this->button5->TabIndex = 13;
+			this->button5->Text = L"3x";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &Form1::button5_Click);
+			// 
+			// button6
+			// 
+			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button6->Location = System::Drawing::Point(413, 412);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(58, 47);
+			this->button6->TabIndex = 14;
+			this->button6->Text = L"5x";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &Form1::button6_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1019, 548);
+			this->Controls->Add(this->button6);
+			this->Controls->Add(this->button5);
+			this->Controls->Add(this->button4);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->richTextBox5);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->richTextBox4);
@@ -186,6 +275,7 @@ namespace CppCLRWinFormsProject {
 		int initialGambleAmount = 0;
 		int gambleMultiplier = 0;
 		int counter = 0;
+		bool multiplierClicked = false;
 
 #pragma endregion
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -208,8 +298,47 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			gambleAmount = gambleAmount * gambleMultiplier;
 		}
 	}
-	textBox4->Text = "After " + runTimes + " coin flips, here is how much money is leftover: " + endingMoney;
+	textBox4->Text = "After " + runTimes + " times: " + endingMoney + "\r\n" + textBox4->Text;
 	counter++;
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	gambleMultiplier = 1;
+	resetButtons();
+	button2->BackColor = Color::LightBlue;
+	multiplierClicked = true;
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	gambleMultiplier = 2;
+	resetButtons();
+	button3->BackColor = Color::LightBlue;
+	multiplierClicked = true;
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	gambleMultiplier = 3;
+    resetButtons();
+	button4->BackColor = Color::LightBlue;
+	multiplierClicked = true;
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	gambleMultiplier = 4;
+	resetButtons();
+	button5->BackColor = Color::LightBlue;
+	multiplierClicked = true;
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	gambleMultiplier = 5;
+	resetButtons();
+	button6->BackColor = Color::LightBlue;
+	multiplierClicked = true;
+}
+private: System::Void resetButtons() {
+	if (multiplierClicked) {
+		button2->BackColor = Color::Gray;
+		button3->BackColor = Color::Gray;
+		button4->BackColor = Color::Gray;
+		button5->BackColor = Color::Gray;
+		button6->BackColor = Color::Gray;
+	}
 }
 };
 }
